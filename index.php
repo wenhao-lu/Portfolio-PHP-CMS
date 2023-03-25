@@ -12,7 +12,7 @@ include( 'admin/includes/functions.php' );
   <meta charset="UTF-8">
   <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
   
-  <title>Website Admin</title>
+  <title>Wenhao Lu's Portfolio</title>
   
   <link href="styles.css" type="text/css" rel="stylesheet">
   
@@ -20,50 +20,108 @@ include( 'admin/includes/functions.php' );
   
 </head>
 <body>
+  <section>
+    <nav class="navbar">
+      <ul class="navMenu">
+        <li><a href="https://www.linkedin.com/in/wenhao-kevin-l-6290b2145/"><img src="linkedin.png" class="contactImg" alt="linkedin"></a></li>
+        <li><a href="https://github.com/wenhao-lu/Portfolio-PHP-CMS"><img src="github.png" class="contactImg" alt="github"></a></li>
+      </ul>
+    </nav>
+    <div class="introContainer">
+      <div class="intro">
+        <p>Hi, I'm <span style="color: rgb(9, 186, 130);">Kevin</span> - Wenhao Lu</p>
+        <p>I'm a full stack developer.</p>
+      </div>
+      <div class="linkContainer">
+        <ul class="introLink">
+          <li><p class="linkBtn" style="color: rgb(9, 186, 130);border:1px solid rgb(9, 186, 130);text-align: center;"><a href="">Skills</a></p></li>
+          <li><p class="linkBtn" style="color: rgb(9, 186, 130);border:1px solid rgb(9, 186, 130);text-align: center;"><a href="">Projects</a></p></li>
+          <li><p class="linkBtn" style="color: rgb(9, 186, 130);border:1px solid rgb(9, 186, 130);text-align: center;"><a href="">Education</a></p></li>
+          <li><p class="linkBtn" style="color: rgb(9, 186, 130);border:1px solid rgb(9, 186, 130);text-align: center;"><a href="">Contact</a></p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-  <h1>Welcome to My Website!</h1>
-  <p>This is the website frontend!</p>
 
+<section>
+  <div class="skill">
+    <p>My Stack</p>
+
+    <?php
+    // skills section
+    // query for front-end skills
+    $queryFront = 'SELECT *
+      FROM skills
+      WHERE url = "frontend"';
+    $resultFront = mysqli_query($connect, $queryFront);
+    // query for back-end skills
+    $queryBack = 'SELECT *
+      FROM skills
+      WHERE url = "backend"';
+    $resultBack = mysqli_query($connect, $queryBack);
+    // query for tools skills
+    $queryTools = 'SELECT *
+      FROM skills
+      WHERE url = "tools"';
+    $resultTools = mysqli_query($connect, $queryTools);
+    ?>
+    
+    <div class="skillContainer">
+      <div class="skillFrontEnd">
+        <p>Front End</p>
+        <?php while($recordFront = mysqli_fetch_assoc($resultFront)): ?>
+          <img src="admin/image.php?type=skills&id=<?php echo $recordFront['id']; ?>&width=100&height=100">
+        <?php endwhile; ?>
+      </div>
+
+      <div class="skillBackEnd">
+        <p>Back End</p>
+        <?php while($recordBack = mysqli_fetch_assoc($resultBack)): ?>
+          <img src="admin/image.php?type=skills&id=<?php echo $recordBack['id']; ?>&width=100&height=100">
+        <?php endwhile; ?>
+      </div>
+
+      <div class="skillTools">
+        <p>Tools</p>
+        <?php while($recordTools = mysqli_fetch_assoc($resultTools)): ?>
+          <img src="admin/image.php?type=skills&id=<?php echo $recordTools['id']; ?>&width=100&height=100">
+        <?php endwhile; ?>
+      </div>
+    </div>
+  </div>
+ </section>
+
+ <section>
   <?php
-
+  // projects section
   $query = 'SELECT *
     FROM projects
     ORDER BY date DESC';
   $result = mysqli_query( $connect, $query );
-
   ?>
 
-  <p>There are <?php echo mysqli_num_rows($result); ?> projects in the database!</p>
-
-  <hr>
-
+  
   <?php while($record = mysqli_fetch_assoc($result)): ?>
+    <div class="projectContainer">
+      <div class="projectImg">
+        <?php if($record['photo']): ?>
+          <img src="admin/image.php?type=project&id=<?php echo $record['id']; ?>&width=200&height=200">
+        <?php else: ?>
+          <p>no image</p>
+        <?php endif; ?>
+      </div>
 
-    <div>
-
-      <h2><?php echo $record['title']; ?></h2>
-      <?php echo $record['content']; ?>
-
-      <?php if($record['photo']): ?>
-
-        <p>This is a project image</p>
-
-        <img src="admin/image.php?type=project&id=<?php echo $record['id']; ?>&width=200&height=200">
-
-      <?php else: ?>
-
-        <p>This record does not have an image!</p>
-
-      <?php endif; ?>
-
+      <div>
+        <h2><?php echo $record['title']; ?></h2>
+        <?php echo $record['content']; ?>
+      </div>
     </div>
-
-    <hr>
-
   <?php endwhile; ?>
+  </section>
 
-
-
+  
+  <section>
   <?php
   // education section
   $query = 'SELECT *
@@ -75,7 +133,6 @@ include( 'admin/includes/functions.php' );
 
 
   <h1>Education</h1>
-  <p>There are <?php echo mysqli_num_rows($result); ?> education history in the database!</p>
 
   <?php while($record = mysqli_fetch_assoc($result)): ?>
 
@@ -85,34 +142,13 @@ include( 'admin/includes/functions.php' );
   <?php echo $record['major']; ?><br />
   <?php echo $record['school']; ?><br />
   <?php echo $record['date']; ?><br />
+  <p>Courses: </p>
   <?php echo $record['course']; ?>
 
-
 </div>
-<hr>
 
 <?php endwhile; ?>
-
-<?php
-
-  $query = 'SELECT *
-    FROM skills
-    ORDER BY percent DESC';
-  $result = mysqli_query($connect, $query);
-
-  ?>
-
-  <?php while($record = mysqli_fetch_assoc($result)): ?>
-
-    <h2><?php echo $record['name']; ?></h2>
-
-    <p>Percent: <?php echo $record['percent']; ?>%</p>
-
-    <div style="background-color: grey;">
-      <div style="background-color: red; width:<?php echo $record['percent']; ?>%; height: 20px;"></div>
-    </div>
-
-  <?php endwhile; ?>
+</section>
 
 </body>
 </html>
