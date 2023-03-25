@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0;
+}
+section {
+    height: 100vh;
+}
+.contactImg{
+    width: 60px;
+    margin-left: 30px;
+}
+.navMenu{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+.navbar ul li{
+    list-style-type:none;
+}
+.introLink{
+    display: flex;
+    flex-flow: row;
+    margin-left: 260px;
+}
+.linkContainer ul li{
+    list-style-type:none;
+}
+.linkBtn{
+    margin-right: 30px;
+    width: 80px;
+}
+a{
+    text-decoration: none;
+}
+.intro{
+    margin-left: 300px;
+    font-size: 36px;
+    font-weight: 700;
+}
+.intro p{
+    margin: 0;
+}
+.introContainer{
+    margin-top: 24vh;
+}
+.skill{
+    text-align: center;
+    margin-top: 24vh;
+}
+.skillContainer{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.projectContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+
+
+
+
+
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td img, 
+th img {
+  margin: 0;
+  padding: 0;
+}
+
+td, th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  white-space: nowrap;
+}
+
+.error {
+  color: #f00;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin: 0 0 10px 0;
+  text-align: left;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+  border-radius: 0;
+}
+
+textarea {
+  border-radius: 0;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+}
+
+input {
+  border-radius: 0;
+  font-size: 14px;
+  padding: 5px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  border: 0;
+  background-color: #eb741d;
+  color: #fff;
+  padding: 10px 10px;
+  font-size: 110%;
+  margin-top: 10px;
+}
+
+/* styles for the dashboard */
+#dashboard {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #eb741d;
+  height: 100px;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+#dashboard li {
+  position: relative;
+  transition: all 0.2s ease;
+}
+#dashboard li a {
+  color: #fff;
+  text-align: center;
+  padding: 20px 30px;
+  text-decoration: none;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+#dashboard li:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+#dashboard li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+#dashboard li:hover:after {
+  background-color: #fff;
+}
+#dashboard li.active {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+#dashboard li.active:after {
+  background-color: #fff;
+}
+
+
+
+
+/* 
+
+a:link,
+a:active,
+a:hover,
+a:visited {
+  text-decoration: none;
+  color: #FF8500;
+}
+
+#dashboard {
+  padding: 0;
+  margin: 0;
+}
+
+#dashboard li a:link,
+#dashboard li a:visited,
+#dashboard li a:active,
+#dashboard li a:hover {
+  color: #fff;
+}
+#dashboard li {
+  background-color: #eb741d;
+  display: inline-block;
+  width: 22%;
+  margin: 1%;
+  padding: 2%;
+  box-sizing: border-box;
+  text-align: center;
+  list-style: none;
+  list-style-position: inside;
+  border: none;
+}
+#dashboard i {
+  margin-bottom: 5px;
+}
+*/
+
