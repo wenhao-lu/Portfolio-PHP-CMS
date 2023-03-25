@@ -1,3 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    overflow-y: scroll;
+    margin: 0;
+}
+section {
+    height: 100vh;
+}
+.contactImg{
+    width: 60px;
+    margin-left: 30px;
+}
+.navMenu{
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    margin-right: 60px;
+}
+.navbar ul li{
+    list-style-type:none;
+}
+.introLink{
+    display: flex;
+    flex-flow: row;
+    margin-left: 260px;
+}
+.linkContainer ul li{
+    list-style-type:none;
+}
+.linkBtn{
+    margin-right: 30px;
+    width: 80px;
+}
+a{
+    text-decoration: none;
+}
+.intro{
+    margin-left: 300px;
+    font-size: 36px;
+    font-weight: 700;
+}
+.intro p{
+    margin: 0;
+}
+.introContainer{
+    margin-top: 24vh;
+}
+.skill{
+    text-align: center;
+    margin-top: 24vh;
+}
+.skillContainer{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.projectContainer{
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+
+
+
+
 
 table {
   width: 100%;
